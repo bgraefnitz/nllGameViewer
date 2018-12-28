@@ -1,4 +1,66 @@
-<p>
-  Data:{{gameData}}
-  <br/>Error: {{errorMessage}}
-</p>
+<div class="card">
+  <div class="card-header">
+    NLL Game
+  </div>
+  <div class="card-body">
+    <div class="row scoreHeader">
+      <div class="col-md-2">
+        {{gameData.Teams[0].Name}}
+        {{gameData.Teams[0].Score.Final}}
+      </div>
+      <div class="col-md-4">
+        {{gameData.GameTime}}
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>T</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{gameData.Teams[0].Name}}</td>
+              <td>{{gameData.Teams[0].Score.Q1}}</td>
+              <td>{{gameData.Teams[0].Score.Q2}}</td>
+              <td>{{gameData.Teams[0].Score.Q3}}</td>
+              <td>{{gameData.Teams[0].Score.Q4}}</td>
+              <td>{{gameData.Teams[0].Score.Final}}</td>
+            </tr>
+            <tr>
+              <td>{{gameData.Teams[1].Name}}</td>
+              <td>{{gameData.Teams[1].Score.Q1}}</td>
+              <td>{{gameData.Teams[1].Score.Q2}}</td>
+              <td>{{gameData.Teams[1].Score.Q3}}</td>
+              <td>{{gameData.Teams[1].Score.Q4}}</td>
+              <td>{{gameData.Teams[1].Score.Final}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-2">
+        {{gameData.Teams[1].Name}}
+        {{gameData.Teams[1].Score.Final}}
+      </div>
+    </div>
+    <mat-tab-group>
+      <mat-tab label="Box Score">
+        <app-box-score [playerData]="gameData.Teams[0].Players"></app-box-score>
+        <app-box-score [playerData]="gameData.Teams[1].Players"></app-box-score>
+      </mat-tab>
+      <mat-tab label="Play by Play">
+        <app-play-by-play [gameEvents]="gameData.GameEvents"></app-play-by-play>
+      </mat-tab>
+      <mat-tab label="Lineups">
+        <app-lineups [lineups]=gameData.Teams[0].Lineups></app-lineups>
+        <app-lineups [lineups]=gameData.Teams[1].Lineups></app-lineups>
+      </mat-tab>
+      <mat-tab label="Team Stats">
+        <app-team-stats [awayTeam]="gameData.Teams[0]" [homeTeam]="gameData.Teams[1]"></app-team-stats>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

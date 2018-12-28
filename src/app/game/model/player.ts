@@ -1,0 +1,37 @@
+export interface IPlayer {
+    DepthChartPos: number;
+    InGame: string;
+    PlayerOfTheGame: boolean;
+    FullName: string;
+    SecondsPlayed: number;
+    Points: number;
+    DefRebounds: number;
+    Assists: number;
+    Steals: number;
+    Blocks: number;
+    Turnovers: number;
+    TwoPM: number;
+    TwoPA: number;
+    ThreePM: number;
+    ThreePA: number;
+    FTM: number;
+    FTA: number;
+    OffRebounds: number;
+    Fouls: number;
+    PlusMinus: number;
+    PointsAssisted: number;
+    PointsInPaint: number;
+    SecondChancePoints: number;
+    FastBreakPoints: number;
+    PointsOffTurnovers: number;
+    Dunks: number;
+    Possession: boolean;
+    TouchTime: number;
+    Touches: number;
+    MinutesPlayed: number;
+    FGM: number;
+    FGA: number;
+    Rebounds: number;
+    PointsResponsibleFor: number;
+    FantasyPoints: number;
+}

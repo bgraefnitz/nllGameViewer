@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameDataService } from './game-data.service';
+import { IGame } from './model/game';
 
 @Component({
   selector: 'app-game',
@@ -7,13 +8,11 @@ import { GameDataService } from './game-data.service';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
-  public gameData: any;
-  public errorMessage: any;
+  public gameData: IGame;
   constructor(private gameDataService: GameDataService) {
   }
 
   ngOnInit() {
-    this.gameDataService.getGameData().subscribe(gameData => this.gameData, error => this.errorMessage = <any>error);
+    this.gameDataService.getGameData().subscribe(data => { this.gameData = data; });
   }
-
 }

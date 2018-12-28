@@ -1,0 +1,20 @@
+<div class="table table-sm">
+    <table>
+      <thead>
+        <tr>
+          <th>TIME</th>
+          <th>TEAM</th>
+          <th>PLAYER</th>
+          <th>PLAY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gameEvent of gameEvents">
+          <td>{{gameEvent.GameStatus}}</td>
+          <td>{{gameEvent.Team}}</td>
+          <td>{{gameEvent.Player}}</td>
+          <td>{{gameEvent.StatChange}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
