@@ -9,10 +9,12 @@ import { IGame } from './model/game';
 })
 export class GameComponent implements OnInit {
   public gameData: IGame;
+  private gameURL: string;
   constructor(private gameDataService: GameDataService) {
   }
 
   ngOnInit() {
-    this.gameDataService.getGameData().subscribe(data => { this.gameData = data; });
+    this.gameURL = decodeURIComponent(window.location.href.split('=')[1]);
+    this.gameDataService.getGameData(this.gameURL).subscribe(data => { this.gameData = data; });
   }
 }

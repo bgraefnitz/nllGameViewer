@@ -7,12 +7,10 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GameDataService {
-  private gameDataUrl = 'https://dl.dropboxusercontent.com/s/pu2lyq8n1pfs3k7/game.json';
-
   constructor(private http: HttpClient) { }
 
-  getGameData(): Observable<any> {
-    return this.http.get(this.gameDataUrl).pipe(tap(data => console.log('All: ' + JSON.stringify(data))), catchError(this.handleError));
+  getGameData(url: string): Observable<any> {
+    return this.http.get(url).pipe(tap(data => console.log('All: ' + JSON.stringify(data))), catchError(this.handleError));
   }
 
   private handleError(err: HttpErrorResponse) {

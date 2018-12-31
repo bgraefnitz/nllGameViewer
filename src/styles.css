@@ -5,3 +5,9 @@
 thead{
     color: #337AB7;
 }
+th.playerName{
+    width:225px;
+}
+th.lineupName{
+    width: 800px;
+}
